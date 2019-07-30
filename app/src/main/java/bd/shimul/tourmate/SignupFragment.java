@@ -55,6 +55,7 @@ public class SignupFragment extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.master_frameLayout, new LoginFragment());
+                fragmentTransaction.commit();
             }
         });
 
@@ -107,6 +108,7 @@ public class SignupFragment extends Fragment {
                             Toast.makeText(view.getContext(), "Registration complete.", Toast.LENGTH_SHORT).show();
 
                         }else{
+                            dialog.dismiss();
                             Toast.makeText(view.getContext(), "Registration failed.", Toast.LENGTH_SHORT).show();
 
                         }
