@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dash"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/navigation_tour"
+        android:icon="@drawable/ic_aircraft"
+        android:title="Tours" />
+
+    <item
+    android:id="@+id/navigation_nearby"
+    android:icon="@drawable/ic_map"
+    android:title="Nearby" />
+
+    <item
+        android:id="@+id/navigation_weather"
+        android:icon="@drawable/ic_clouds"
+        android:title="Weather" />
+
+</menu>
