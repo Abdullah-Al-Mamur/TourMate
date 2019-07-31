@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -30,6 +31,7 @@ import org.w3c.dom.Text;
 
 public class DashboardFragment extends Fragment {
 
+
     public DashboardFragment() {
 
     }
@@ -39,8 +41,10 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((HomeActivity) getActivity()).setActionBarTitle("Dashboard");
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         init(view);
+
 
         return view;
     }

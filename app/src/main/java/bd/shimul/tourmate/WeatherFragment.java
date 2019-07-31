@@ -25,6 +25,7 @@ public class WeatherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((HomeActivity) getActivity()).setActionBarTitle("Weather");
         return inflater.inflate(R.layout.fragment_weather, container, false);
     }
 

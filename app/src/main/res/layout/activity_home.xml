@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:id="@+id/home_actionbar"
+        app:title="Home"
+        app:titleTextColor="@color/colorPrimary">
+
+    </androidx.appcompat.widget.Toolbar>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
