@@ -2,6 +2,7 @@ package bd.shimul.tourmate;
 
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
+
+import java.util.Calendar;
 
 
 public class SignupFragment extends Fragment {
@@ -35,6 +40,7 @@ public class SignupFragment extends Fragment {
     public String firstname, lastname, email, password, confirmpass;
     public FirebaseAuth firebaseAuth;
     public ProgressBar progressBar;
+    public DatabaseReference databaseReference;
 
 
     public SignupFragment() {
@@ -105,7 +111,11 @@ public class SignupFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             dialog.dismiss();
+                            String userId = firebaseAuth.getCurrentUser().getUid();
+                            String registrationDate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+                            databaseReference.child(userId).child("userInfo").setValue(new Users(firstname, lastname, email, password, registrationDate));
                             Toast.makeText(view.getContext(), "Registration complete.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), HomeActivity.class );
 
                         }else{
                             dialog.dismiss();
@@ -131,6 +141,7 @@ public class SignupFragment extends Fragment {
         confirmPasswordInput = view.findViewById(R.id.signupconfpasswordET);
         firebaseAuth = FirebaseAuth.getInstance();
         progressBar = view.findViewById(R.id.progress_circular);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Database").child("Users");
 
     }
 
